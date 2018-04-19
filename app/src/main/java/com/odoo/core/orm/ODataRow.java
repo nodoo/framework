@@ -78,14 +78,12 @@ public class ODataRow implements Parcelable {
     }
 
     public List<Object> values() {
-        List<Object> values = new ArrayList<>();
-        values.addAll(_data.values());
+        List<Object> values = new ArrayList<>(_data.values());
         return values;
     }
 
     public List<String> keys() {
-        List<String> list = new ArrayList<>();
-        list.addAll(_data.keySet());
+        List<String> list = new ArrayList<>(_data.keySet());
         return list;
     }
 

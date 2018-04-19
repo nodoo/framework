@@ -247,6 +247,7 @@ public class DateTimePicker {
                 Calendar cal = Calendar.getInstance();
                 cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 cal.set(Calendar.MINUTE, minute);
+                cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MILLISECOND, 0);
                 Date now = cal.getTime();
                 String time = new SimpleDateFormat(ODateUtils.DEFAULT_TIME_FORMAT)

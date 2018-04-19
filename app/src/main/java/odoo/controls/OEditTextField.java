@@ -23,12 +23,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
+import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.view.inputmethod.EditorInfo;
 
 import com.odoo.core.orm.fields.OColumn;
 import com.odoo.core.utils.ODateUtils;
@@ -48,6 +50,7 @@ public class OEditTextField extends LinearLayout implements IOControlData,
     private float textSize = -1;
     private int appearance = -1;
     private int textColor = Color.BLACK;
+    private int inputType = -1;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public OEditTextField(Context context, AttributeSet attrs,
@@ -95,12 +98,18 @@ public class OEditTextField extends LinearLayout implements IOControlData,
             edtText.setBackgroundColor(Color.TRANSPARENT);
             edtText.setPadding(0, 10, 10, 10);
             edtText.setHint(getLabel());
+            edtText.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+            edtText.setMaxLines(1);
+            edtText.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
             edtText.setOnFocusChangeListener(this);
             if (textSize > -1) {
                 edtText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             }
             if (appearance > -1) {
                 edtText.setTextAppearance(mContext, appearance);
+            }
+            if (inputType > -1) {
+                edtText.setInputType(inputType);
             }
             edtText.setTextColor(textColor);
             addView(edtText);
@@ -183,6 +192,14 @@ public class OEditTextField extends LinearLayout implements IOControlData,
     @Override
     public Boolean isEditable() {
         return mEditable;
+    }
+
+    public void setInputType(int type) {
+        inputType = type;
+    }
+
+    public int getInputType() {
+        return inputType;
     }
 
     public void setHint(String hint) {

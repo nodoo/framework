@@ -30,7 +30,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -426,7 +425,7 @@ public class OSelectionField extends LinearLayout implements IOControlData,
 
     @Override
     public View getFieldView() {
-        return null;
+        return mSpinner;
     }
 
 

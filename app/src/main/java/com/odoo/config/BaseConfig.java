@@ -26,5 +26,3 @@ public class BaseConfig {
 
     public static final boolean DEVELOPER_MODE = true;
 }
-
-

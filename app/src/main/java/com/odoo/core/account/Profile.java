@@ -79,4 +79,3 @@ public class Profile extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
